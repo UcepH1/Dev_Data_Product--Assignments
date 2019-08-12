@@ -1,0 +1,37 @@
+---
+title: "Week 3 Assignment: R Markdown Presentation & Plotly"
+author: "UcepH1"
+date: "12/08/2019"
+output: 
+  slidy_presentation: 
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Chosen Data set
+
+For this assignement, we will use the cars data set available in R.
+
+```{r mtcars}
+head(mtcars)
+```
+
+## Including Plots with Plotly
+
+Let's look at how ***mpg*** behaves depending on ***wt***. Colors represents ***cyl*** and dot size represents ***gear***.
+
+```{r , echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+library(plotly)
+```
+
+```{r , echo=FALSE, message=FALSE, warning=FALSE}
+plot_ly(mtcars, x=~wt, y=~mpg, color = ~cyl, size =~gear, type='scatter',
+        mode = 'markers',
+        hoverinfo = 'text',
+        text = rownames(mtcars))
+```
+
+## Thanks
